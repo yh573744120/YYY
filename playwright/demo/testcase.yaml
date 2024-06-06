@@ -1,0 +1,87 @@
+loginpage:
+  cases:
+  - name: 打开页面
+    method: goto
+    url: https://app.dev.connectly.ai/flow
+
+  - name: 输入用户名
+    method: fill
+    selector: //input[@id='1-email']
+    value: test@connectly.ai
+
+  - name: 输入密码
+    method: fill
+    selector: //input[@name='password']
+    value: test2024@cnt
+
+  - name: 点击LOGIN
+    method: click
+    selector: //button[@name='submit']
+    ass: //*[text()='Get Started']
+
+
+resend:
+   cases:
+     - name: 选择重新发送&编辑
+       method: click
+       selector: //*[text()='Resend or edit a campaign']
+
+     - name: 输入框输入Cnct Load Testing For Interview
+       method: fill
+       selector: //input[@id=':r0:']
+       value: Cnct Load Testing For Interview
+
+     - name: 选择Cnct Load Testing For Interview
+       method: keyboard.press
+       value1: ArrowUp
+       value2: Enter
+
+     - name: 点击RESEND
+       method: click
+       selector: //button[text()='Resend']
+       ass: //*[text()='All messages are approved!']
+
+continue:
+   cases:
+    - name: 点击continue
+      method: click
+      selector: //button[text()='Continue']
+
+    - name: 点击next
+      method: click
+      selector: //button[text()='Next']
+
+    - name: 点击Add recipient list
+      method: click
+      selector: //a[text()='Add recipient list']
+      ass: //a[text()='Add recipient list']
+
+
+    - name: 输入联系方式
+      method1: keyboard.press
+      value1: "ArrowDown"
+      value2: "Control+s"
+      method2: keyboard.type
+      value3: "086123456789"
+
+    - name: 验证联系方式
+      method: click
+      selector: //button[text()='Verify']
+
+    - name: 点击next
+      method: click
+      selector: //button[text()='Next']
+      ass: //div[text()='Spreadsheet verified successfully']
+
+
+sendnow:
+   cases:
+    - name: 立即发送消息
+      method: click
+      selector: //div[text()='Send Now']
+
+    - name: 提交
+      method: click
+      selector: //button[text()='Submit Campaign']
+      ass: //*[text()='Congrats, your campaign has been sent!']
+
